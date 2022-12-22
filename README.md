@@ -1,6 +1,6 @@
 # Control-of-SCARA-Robot-in-Gazebo
 
-#Install 
+# Install 
 Environment: Ubuntu 22.04 + ROS2 Humble Hawksbill
 
 Build Instructions
@@ -9,7 +9,7 @@ Compile under catkin_ws: colcon build
 Make all python files as executables. 
 
 
-#Part 1
+# Part 1
 1. Spawn the Robot
 For part 1, we spawn the robot according to the given configuration of SCARA robot which is RRP. We add a prismatic joint to the end of the 2nd joint.The joints are rotating along the positive motion axis. Using these parameters we calculat the forward and inverse kinematics for the robot. Command for launching the robot in gazebo is given as- `ros2 launch rrbot_gazebo rrbot_world.launch.py`
 
@@ -25,7 +25,7 @@ We define a node that has one subscriber which subscribes to the joint states, a
 First step is to make a custom service file. Then, Inverse Kinematics was accomplished using service server-service client. The command used to call the service is `ros2 run rrbot_inverse1 service`. Calling the service using the command `ros2 service call inversekinematics service_custom/srv/IKinematics "{x: 0.5,y: 1,z: 0.5}"`, returns back the joint values, thus finishing inverse kinematics. The values were validated by using the command `ros2 topic pub /forward_position_controller/commands std_msgs/msg/Float64MultiArray '{data:[1,1,1]}'`, and checking if the robot moves to the particular end effector position. 
 ![rrp3](https://user-images.githubusercontent.com/80807952/209067413-efc876ad-d9dd-49fd-b2b2-d11c9ab84d6b.png)
 
-#Part 2
+# Part 2
 
  
 
