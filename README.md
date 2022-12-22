@@ -27,6 +27,12 @@ First step is to make a custom service file. Then, Inverse Kinematics was accomp
 ![rrp3](https://user-images.githubusercontent.com/80807952/209067413-efc876ad-d9dd-49fd-b2b2-d11c9ab84d6b.png)
 
 # Part 2
+Part 2 of this project is to implement and tune a PD position controller. The approach of fixing all but one joint was used in order to tune the PD controllers. 
 
- 
+1. Custom Generate a service file, with float values for the three reference joint values, and a string for the response. Command for launching the robot in gazebo is given as- `ros2 launch rrbot_gazebo rrbot_world.launch.py`
+
+2. The reference joint value is passed using the command - `ros2 service call /pdController service_custom/srv/JointAngles "{q1: -4,q2: 3,q3: 0.8}"`. Then, the node having the service-client, subscriber to take the current joint states, and publisher to publish back the required joint efforts is called using the command - `ros2 run part_two service`.
+
+3. As explained above, tuning the PD gains can be done by fixing all but joint, in the URDF file, in rrbot_description.urdf. 
+
 
