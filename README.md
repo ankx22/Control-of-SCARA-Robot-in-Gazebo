@@ -46,3 +46,10 @@ Again, you can pass any values of your own choice.
 
 For the PD controller, the values were tuned again accordingly by keeping only one joint as moveable at a time. 
 
+
+## Collaborators
+Ankit Talele
+
+Sai Manikandan
+
+Daniel Goto
